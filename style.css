@@ -5,6 +5,7 @@
     text-align: center;
 }
 
-#result-box {
+#result-box, #numbers-box, #calculate-box {
     visibility: hidden;
 }
+
