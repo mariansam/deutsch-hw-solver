@@ -50,7 +50,9 @@ submitButton.onclick = () => {
 calculateButton.onclick = () => {
     const textboxes = document.getElementsByClassName('numbers');
 
-    numbers = []
+    let nResults = 0;
+
+    let numbers = [];
 
     for (const textbox of textboxes) {
         numbers.push(textbox.valueAsNumber);
@@ -75,8 +77,13 @@ calculateButton.onclick = () => {
             let p = document.createElement('p');
             p.innerText = text;
             results.appendChild(p);
+            nResults++;
         }
     }
+
+    let pResults = document.createElement('p');
+    pResults.innerText = 'n of results: ' + nResults + ' (lol that\'s a lot xd)';
+    calculateBox.appendChild(pResults);
 }
 
 function* permutations(array) {
