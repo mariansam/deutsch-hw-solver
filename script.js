@@ -7,6 +7,7 @@ const addEquals = document.getElementById('add-equals');
 const resultBox = document.getElementById('result-box');
 const result = document.getElementById('result');
 const submitButton = document.getElementById('submit');
+const results = document.getElementById('results');
 
 const numbersBox = document.getElementById('numbers-box');
 const calculateBox = document.getElementById('calculate-box');
@@ -62,8 +63,19 @@ calculateButton.onclick = () => {
             res += operators[i] == '+' ? perm[i] : -perm[i];
         }
 
-        if (res == result.valueAsNumber)
-            console.log(perm);
+        if (res == result.valueAsNumber) {
+            let text = perm[0].toString();
+            
+            for (let i = 1; i < perm.length; i++) {
+                text += operators[i] + perm[i];
+            }
+            
+            text += ' = ' + result.value;
+            
+            let p = document.createElement('p');
+            p.innerText = text;
+            results.appendChild(p);
+        }
     }
 }
 
